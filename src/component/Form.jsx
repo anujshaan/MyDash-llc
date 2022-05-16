@@ -26,7 +26,7 @@ const Form = () => {
     if (error.errLength > 0) {
       setErr({ ...error.errMsg });
     } else {
-      navigate("/");
+      navigate("/home");
     }
   };
   return (

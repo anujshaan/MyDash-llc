@@ -1,0 +1,112 @@
+@use '../global' as global;
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border-radius: 10px;
+    
+    &__left{
+        flex: 1;
+        height: 100%;
+        border-radius: 10px 0 0 10px;
+        background-color: #F7F7F7;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+    &__image{
+        width: 500px;
+        // -webkit-box-shadow: 25px 54px 101px 1px rgba(0,0,0,0.75);
+        // -moz-box-shadow: 25px 54px 101px 1px rgba(0,0,0,0.75);
+        // box-shadow: 25px 54px 101px 1px rgba(0,0,0,0.75);
+    }
+    &__detail{
+        width: 350px;
+        text-align: center;
+        h2{
+            color: #49556F;
+        }
+        p{
+            color: #8D97B2;
+        }
+    }
+    &__right{
+        flex: 1;
+        height: 100%;
+        border-radius: 0 10px 10px 0;
+        background-color: #fff;
+        color: #8D97B2;
+
+        form{
+            height: 100%;
+            padding: 4rem 6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            
+            h2{
+                color: #49556F;
+            }
+        }
+    }
+    &__input{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        label{
+            font-weight: 500;
+            font-size: 14px;
+            opacity: 0.9;
+            cursor: pointer;
+        }
+        input{
+            border:1px solid #ececec;
+            height: 2rem;
+            margin: 5px 0;
+            padding: 0 5px;
+            border-radius: 5px;
+
+            &:focus{
+                outline: none;
+            }
+        }
+        p{
+            font-size: 12px;
+            color: crimson;
+        }
+    }
+    &__terms{
+        font-weight: 500;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        input{
+            height: 30px;
+            cursor: pointer;
+        }
+        span{
+            margin-left: 10px;
+        }
+    }
+    &__button{
+        background-color: #33ADFF;
+        color: #fff;
+        width: fit-content;
+        padding: 10px 3rem;
+        margin: 10px 0;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 500;
+        border:none;
+        cursor: pointer;
+        &:hover{
+            background-color: #229bec;
+        }
+    }
+}

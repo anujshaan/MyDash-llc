@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { data } from "../data";
 import BarChart from "../component/BarChart";
 
@@ -20,10 +20,12 @@ const Home = () => {
   };
 
   return (
-    <div className="home" onClick={handleClick}>
+    <div className="home">
       <h1>Cricketer IPL Total run each year:</h1>
+      <button onClick={handleClick}>Next Player</button>
       <div className="graph">
         <h2>name: {playerData.name}</h2>
+        {/* <BarChart data={playerData.stats} /> */}
         <BarChart data={playerData.stats} />
       </div>
     </div>

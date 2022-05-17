@@ -51,7 +51,7 @@ function BarChart({ data }) {
       svg.select(".x-axis").call(xAxis);
       svg.select(".y-axis").call(y1Axis);
 
-      let rects = svg
+      svg
         .select(".plot-area")
         .attr("fill", "steelblue")
         .selectAll(".bar")
@@ -62,26 +62,8 @@ function BarChart({ data }) {
         .attr("width", x.bandwidth())
         .attr("y", (d) => y1(d.runs))
         .attr("height", (d) => y1(0) - y1(d.runs));
-
-      rects
-        .enter()
-        .append("g")
-        .attr("width", function (d) {
-          return x.bandwidth();
-        }) // since the width is constant, you only need to set it once
-
-        .attr("x", (d) => {
-          return x(d.year);
-        })
-        .attr("y", (d) => {
-          return y1(d.runs);
-        })
-        .attr("height", (d) => {
-          return y1(0) - y1(d.runs);
-        });
-      rects.exit().remove();
     },
-    [data.length]
+    [data]
   );
 
   return (

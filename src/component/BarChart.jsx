@@ -1,8 +1,9 @@
 import { useD3 } from "../hooks/useD3";
-import React from "react";
+import React, { useState } from "react";
 import * as d3 from "d3";
 
 function BarChart({ data }) {
+  const [clicked, setClicked] = useState(false);
   const ref = useD3(
     (svg) => {
       const height = 500;
@@ -63,23 +64,33 @@ function BarChart({ data }) {
         .attr("y", (d) => y1(d.runs))
         .attr("height", (d) => y1(0) - y1(d.runs));
     },
-    [data]
+    [data, clicked]
   );
 
+  const handleClick = () => {
+    console.log(data);
+    data = d3.shuffle(data);
+    setClicked(!clicked);
+    console.log(data);
+  };
+
   return (
-    <svg
-      ref={ref}
-      style={{
-        height: 500,
-        width: "100%",
-        marginRight: "0px",
-        marginLeft: "0px",
-      }}
-    >
-      <g className="plot-area" />
-      <g className="x-axis" />
-      <g className="y-axis" />
-    </svg>
+    <>
+      <button onClick={handleClick}>shuffle data</button>
+      <svg
+        ref={ref}
+        style={{
+          height: 500,
+          width: "100%",
+          marginRight: "0px",
+          marginLeft: "0px",
+        }}
+      >
+        <g className="plot-area" />
+        <g className="x-axis" />
+        <g className="y-axis" />
+      </svg>
+    </>
   );
 }
 
